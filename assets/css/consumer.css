@@ -1,0 +1,164 @@
+/* assets/css/consumer.css — Consumer Dashboard specific styles */
+
+/* ── Hero ── */
+.consumer-hero {
+    background: linear-gradient(120deg, #1565C0 60%, #1976D2 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    box-shadow: 0 4px 18px rgba(21,101,192,.22);
+}
+.consumer-hero h2  { font-size: 1.4rem; font-weight: 700; margin: 0; }
+.consumer-hero .sub { font-size: 0.88rem; opacity: 0.85; margin-top: 3px; }
+
+/* Cart badge in hero */
+.cart-badge {
+    background: rgba(255,255,255,.2);
+    border: 1px solid rgba(255,255,255,.35);
+    color: #fff;
+    border-radius: 22px;
+    padding: 6px 16px;
+    font-size: 0.87rem;
+    font-weight: 600;
+    display: none;
+    align-items: center;
+    gap: 6px;
+    backdrop-filter: blur(4px);
+}
+.cart-badge.visible { display: inline-flex; }
+
+/* ── Two-column layout ── */
+.consumer-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 22px;
+    align-items: start;
+}
+@media (max-width: 900px) { .consumer-layout { grid-template-columns: 1fr; } }
+
+/* ── Section card ── */
+.section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    margin-bottom: 22px;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+}
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f2f2f2;
+}
+.section-header h3 {
+    font-size: 0.97rem;
+    font-weight: 600;
+    color: #1565C0;
+    margin: 0;
+}
+.section-body { padding: 20px; }
+
+/* ── Product grid ── */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+.product-card {
+    border: 1px solid #e3f2fd;
+    border-radius: 10px;
+    padding: 18px;
+    background: #fafcff;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.product-card:hover { box-shadow: 0 4px 16px rgba(21,101,192,.13); transform: translateY(-3px); }
+.product-card h4     { font-size: 0.97rem; font-weight: 600; color: #1565C0; margin-bottom: 5px; }
+.product-card .desc  { font-size: 0.83rem; color: #777; flex-grow: 1; margin-bottom: 10px; }
+.product-card .meta  { font-size: 0.78rem; color: #aaa; margin-bottom: 10px; }
+.product-card .price { font-size: 1.2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+.product-card .btn   { width: 100%; background: #1565C0; padding: 9px; font-size: 0.87rem; }
+.product-card .btn:hover { background: #0d47a1; }
+
+/* ── Cart sidebar ── */
+.cart-sidebar {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    border: 1px solid #f0f0f0;
+    overflow: hidden;
+    position: sticky;
+    top: 80px;
+}
+.cart-sidebar-header {
+    background: linear-gradient(120deg, #1565C0, #1976D2);
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 0.97rem;
+    font-weight: 600;
+}
+.cart-sidebar-body { padding: 16px 20px; }
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid #f2f2f2;
+    font-size: 0.86rem;
+    color: #333;
+}
+.cart-item .name  { flex: 1; }
+.cart-item .qty   { color: #888; margin: 0 8px; }
+.cart-item .price { font-weight: 600; }
+.cart-total {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: right;
+    margin: 14px 0;
+    padding-top: 12px;
+    border-top: 2px solid #e3f2fd;
+    color: #1565C0;
+}
+.cart-empty {
+    text-align: center;
+    padding: 28px 0;
+    color: #bbb;
+    font-style: italic;
+    font-size: 0.88rem;
+}
+.checkout-btn {
+    width: 100%;
+    background: #1565C0;
+    padding: 12px;
+    font-size: 0.95rem;
+}
+.checkout-btn:hover { background: #0d47a1; }
+
+/* ── Orders table ── */
+table { width: 100%; border-collapse: collapse; }
+thead th {
+    background: #f5f9ff;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #999;
+    font-weight: 600;
+}
+tbody td {
+    padding: 11px 14px;
+    font-size: 0.88rem;
+    border-top: 1px solid #f2f2f2;
+    vertical-align: middle;
+}
+tbody tr:hover td { background: #fafcff; }

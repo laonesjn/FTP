@@ -1,0 +1,120 @@
+/* assets/css/auth.css — Shared styles for login.php and register.php */
+
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 60%, #dcedc8 100%);
+    padding: 32px 16px;
+}
+
+.auth-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(46,125,50,.13), 0 1.5px 6px rgba(0,0,0,.07);
+    padding: 44px 40px;
+    width: 100%;
+    max-width: 460px;
+    animation: slideUp 0.35s ease;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.auth-logo {
+    text-align: center;
+    margin-bottom: 18px;
+}
+.auth-logo span {
+    font-size: 3rem;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+}
+
+.auth-card h2 {
+    text-align: center;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #1b5e20;
+    margin-bottom: 5px;
+}
+
+.auth-sub {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #777;
+    margin-bottom: 28px;
+}
+
+/* Divider */
+.auth-divider {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 22px 0;
+}
+
+.auth-footer {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #888;
+    margin-top: 22px;
+}
+.auth-footer a {
+    color: #2e7d32;
+    font-weight: 600;
+    text-decoration: none;
+}
+.auth-footer a:hover { text-decoration: underline; }
+
+/* Input icons feel */
+.auth-card .form-group input,
+.auth-card .form-group select,
+.auth-card .form-group textarea {
+    background: #f8faf8;
+    border: 1.5px solid #dde8dd;
+    font-size: 0.93rem;
+    padding: 11px 13px;
+}
+.auth-card .form-group input:focus,
+.auth-card .form-group select:focus,
+.auth-card .form-group textarea:focus {
+    background: #fff;
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 3px rgba(46,125,50,.1);
+}
+
+/* Submit button */
+.auth-card .btn {
+    padding: 12px;
+    font-size: 0.97rem;
+    letter-spacing: 0.2px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #2e7d32, #388e3c);
+    transition: background 0.25s, transform 0.15s, box-shadow 0.15s;
+}
+.auth-card .btn:hover {
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(46,125,50,.3);
+}
+
+/* Location button on register */
+#locate-btn {
+    background: #4285F4;
+    border-radius: 7px;
+    padding: 9px 14px;
+    font-size: 0.87rem;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+@media (max-width: 500px) {
+    .auth-card { padding: 32px 22px; }
+}

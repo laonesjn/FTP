@@ -1,0 +1,187 @@
+/* assets/css/driver.css — Driver Dashboard specific styles */
+
+/* ── Hero ── */
+.driver-hero {
+    background: linear-gradient(120deg, #e65100 60%, #f57c00 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    box-shadow: 0 4px 18px rgba(230,81,0,.22);
+}
+.driver-hero h2   { font-size: 1.4rem; font-weight: 700; margin: 0; }
+.driver-hero .sub { font-size: 0.88rem; opacity: 0.85; margin-top: 3px; }
+
+/* ── Delivery grid ── */
+.delivery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+}
+
+/* ── Delivery card ── */
+.delivery-card {
+    background: #fff;
+    border-radius: 11px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    border: 1px solid #f0f0f0;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.delivery-card:hover { box-shadow: 0 6px 22px rgba(0,0,0,.11); transform: translateY(-3px); }
+
+.delivery-card-header {
+    padding: 14px 18px;
+    border-bottom: 1px solid #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.delivery-card-header h3 { font-size: 1rem; font-weight: 600; color: #1a1a1a; margin: 0; }
+.delivery-card-body { padding: 16px 18px; }
+
+/* ── Step bar ── */
+.step-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 12px 0;
+    flex-wrap: wrap;
+}
+.step {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 11px;
+    border-radius: 20px;
+    background: #eee;
+    color: #888;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+.step.active {
+    background: #e65100;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(230,81,0,.3);
+}
+.step.done {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+.step-arrow { color: #ccc; font-size: 0.8rem; }
+
+/* ── Location box ── */
+.location-box {
+    background: #fafafa;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 12px 0;
+    font-size: 0.88rem;
+}
+.location-box strong {
+    display: block;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #888;
+    margin-bottom: 5px;
+}
+.location-box .place-name { font-weight: 600; color: #1a1a1a; font-size: 0.92rem; }
+.location-box .place-addr { color: #666; font-size: 0.83rem; margin-top: 2px; }
+
+/* ── Action row ── */
+.action-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+.btn-maps {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #4285F4;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 0.87rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    flex: 1;
+    justify-content: center;
+}
+.btn-maps:hover { background: #3367d6; transform: translateY(-1px); }
+
+.btn-pickup {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #e65100;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 0.87rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+    flex: 1;
+    justify-content: center;
+}
+.btn-pickup:hover { background: #bf360c; transform: translateY(-1px); }
+
+.btn-delivered {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #2e7d32;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 0.87rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+    flex: 1;
+    justify-content: center;
+}
+.btn-delivered:hover { background: #1b5e20; transform: translateY(-1px); }
+
+/* ── Delivered card ── */
+.delivered-box {
+    background: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    border-radius: 8px;
+    padding: 14px;
+    margin-top: 12px;
+    text-align: center;
+    color: #2e7d32;
+}
+.delivered-box .icon { font-size: 1.6rem; margin-bottom: 6px; }
+.delivered-box strong { display: block; font-size: 0.95rem; margin-bottom: 3px; }
+.delivered-box small { font-size: 0.8rem; color: #666; }
+
+/* ── Empty state ── */
+.empty-deliveries {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #bbb;
+}
+.empty-deliveries .icon { font-size: 3rem; margin-bottom: 12px; }
+.empty-deliveries p     { font-size: 0.95rem; }

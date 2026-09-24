@@ -1,0 +1,147 @@
+/* assets/css/farmer.css — Farmer Dashboard specific styles */
+
+/* ── Page hero strip ── */
+.farmer-hero {
+    background: linear-gradient(120deg, #2e7d32 60%, #43a047 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    box-shadow: 0 4px 18px rgba(46,125,50,.25);
+}
+.farmer-hero h2   { font-size: 1.45rem; font-weight: 700; margin: 0; }
+.farmer-hero .sub { font-size: 0.88rem; opacity: 0.85; margin-top: 3px; }
+
+/* ── Stats strip ── */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+}
+.stat-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    border-top: 3px solid #2e7d32;
+    transition: transform 0.2s;
+}
+.stat-card:hover { transform: translateY(-3px); }
+.stat-card .num   { font-size: 2rem; font-weight: 700; color: #2e7d32; line-height: 1; }
+.stat-card .lbl   { font-size: 0.78rem; color: #888; margin-top: 5px; text-transform: uppercase; letter-spacing: 0.4px; }
+
+/* ── Two-column layout ── */
+.farmer-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 22px;
+    align-items: start;
+}
+@media (max-width: 900px) { .farmer-layout { grid-template-columns: 1fr; } }
+
+/* ── Section card ── */
+.section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    margin-bottom: 22px;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+}
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f2f2f2;
+}
+.section-header h3 {
+    font-size: 0.97rem;
+    font-weight: 600;
+    color: #2e7d32;
+    margin: 0;
+}
+.section-body { padding: 20px; }
+.section-body:empty::after {
+    content: "Nothing here yet.";
+    color: #bbb;
+    font-style: italic;
+    display: block;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* ── Product grid ── */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 16px;
+}
+.product-card {
+    border: 1px solid #e8f5e9;
+    border-radius: 9px;
+    padding: 16px;
+    background: #fafff9;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.product-card:hover { box-shadow: 0 4px 14px rgba(46,125,50,.12); transform: translateY(-3px); }
+.product-card h4     { font-size: 0.95rem; font-weight: 600; color: #1b5e20; margin-bottom: 5px; }
+.product-card .desc  { font-size: 0.83rem; color: #777; margin-bottom: 10px; min-height: 36px; }
+.product-card .price { font-size: 1.15rem; font-weight: 700; color: #2e7d32; }
+.product-card .stock { font-size: 0.78rem; background: #e8f5e9; color: #2e7d32; border-radius: 12px; padding: 2px 9px; display: inline-block; margin-top: 8px; }
+
+/* ── Orders table ── */
+table { width: 100%; border-collapse: collapse; }
+thead th {
+    background: #f9f9f9;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #999;
+    font-weight: 600;
+}
+tbody td {
+    padding: 11px 14px;
+    font-size: 0.88rem;
+    border-top: 1px solid #f2f2f2;
+    vertical-align: middle;
+}
+tbody tr:hover td { background: #fafff9; }
+
+/* ── Add product sidebar ── */
+.add-product-panel {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    position: sticky;
+    top: 80px;
+}
+.add-product-panel .panel-header {
+    background: linear-gradient(120deg, #2e7d32, #43a047);
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 0.97rem;
+    font-weight: 600;
+}
+.add-product-panel .panel-body { padding: 20px; }
+.add-product-panel .btn { width: 100%; margin-top: 4px; padding: 12px; font-size: 0.95rem; }
+
+/* ── Empty state ── */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #bbb;
+}
+.empty-state .icon { font-size: 2.5rem; margin-bottom: 10px; }
+.empty-state p { font-size: 0.9rem; }
