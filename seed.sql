@@ -1,6 +1,6 @@
 USE farm_to_table;
 
--- Seed Users (Passwords are hashed versions of 'password123')
+-- Seed Users (Passwords are hashed versions of 'password')
 INSERT INTO Users (Name, Email, PasswordHash, Role, Address, Coordinates) VALUES
 ('John the Farmer', 'john@farm.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Farmer', '123 Country Road, Nuwara Eliya', '6.9497,80.7891'),
 ('Alice the Consumer', 'alice@home.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Consumer', '456 Galle Road, Colombo 03', '6.9016,79.8547'),
