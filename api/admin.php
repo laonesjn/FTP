@@ -23,7 +23,7 @@ if ($section === 'all' || $section === 'users') {
 
 if ($section === 'all' || $section === 'products') {
     $stmt = $pdo->query("
-        SELECT p.ProductID, p.Name AS ProductName, p.Price, p.Stock, u.Name AS FarmerName
+        SELECT p.ProductID, p.Name AS ProductName, p.Price, p.Stock, p.ItemType, u.Name AS FarmerName
         FROM Products p
         JOIN Users u ON p.FarmerID = u.UserID
         ORDER BY p.Name

@@ -80,8 +80,8 @@ if (isset($_GET['action'])) {
             <span class="count-badge" id="products-count">—</span>
         </div>
         <table>
-            <thead><tr><th>ID</th><th>Product</th><th>Price</th><th>Stock</th><th>Farmer</th><th>Actions</th></tr></thead>
-            <tbody id="products-body"><tr class="loading-row"><td colspan="6">Loading...</td></tr></tbody>
+            <thead><tr><th>ID</th><th>Product</th><th>Type</th><th>Price</th><th>Stock</th><th>Farmer</th><th>Actions</th></tr></thead>
+            <tbody id="products-body"><tr class="loading-row"><td colspan="7">Loading...</td></tr></tbody>
         </table>
     </div>
 
@@ -164,20 +164,28 @@ function buildUsers(users) {
 }
 
 function buildProducts(products) {
-    if (!products || !products.length) return '<tr><td colspan="6" style="text-align:center;color:#aaa;">No products found.</td></tr>';
-    return products.map(p => `
+    if (!products || !products.length) return '<tr><td colspan="7" style="text-align:center;color:#aaa;">No products found.</td></tr>';
+    return products.map(p => {
+        const type = p.ItemType || 'Plant based';
+        const isPlant = type === 'Plant based';
+        const icon = isPlant ? '🌱' : '🐄';
+        const badgeBg = isPlant ? '#e8f5e9' : '#fff3e0';
+        const badgeColor = isPlant ? '#2e7d32' : '#e65100';
+        return `
         <tr>
             <td>${escHtml(p.ProductID)}</td>
             <td>${escHtml(p.ProductName)}</td>
+            <td><span class="badge" style="background:${badgeBg}; color:${badgeColor}; font-size:0.75rem;">${icon} ${escHtml(type)}</span></td>
             <td>LKR ${parseFloat(p.Price).toFixed(2)}</td>
-            <td>${escHtml(p.Stock)}</td>
+            <td><strong>${escHtml(p.Stock)}</strong></td>
             <td>${escHtml(p.FarmerName)}</td>
             <td class="action-links">
                 <a class="edit-link" href="admin_edit_product.php?id=${p.ProductID}">✏️ Edit</a>
                 <a class="delete-link" href="admin_dashboard.php?action=delete_product&id=${p.ProductID}"
                    onclick="return confirm('Delete ${escHtml(p.ProductName)}?')">🗑️ Delete</a>
             </td>
-        </tr>`).join('');
+        </tr>`;
+    }).join('');
 }
 
 function buildOrders(orders) {

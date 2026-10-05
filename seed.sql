@@ -8,10 +8,10 @@ INSERT INTO Users (Name, Email, PasswordHash, Role, Address, Coordinates) VALUES
 ('Admin User', 'admin@farmtopublic.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Admin', 'Admin Office, Colombo', '6.9271,79.8612');
 
 -- Seed Products (Prices in LKR)
-INSERT INTO Products (FarmerID, Name, Description, Price, Stock, ImageURL) VALUES
-(1, 'Fresh Organic Apples', 'Crisp and sweet apples straight from Nuwara Eliya orchards.', 650.00, 100, 'apples.jpg'),
-(1, 'Farm Fresh Eggs', 'A dozen organic free-range eggs.', 480.00, 50, 'eggs.jpg'),
-(1, 'Heirloom Tomatoes', 'Juicy and ripe Sri Lankan heirloom tomatoes.', 350.00, 200, 'tomatoes.jpg');
+INSERT INTO Products (FarmerID, Name, Description, Price, Stock, ImageURL, ItemType) VALUES
+(1, 'Fresh Organic Apples', 'Crisp and sweet apples straight from Nuwara Eliya orchards.', 650.00, 100, 'apples.jpg', 'Plant based'),
+(1, 'Farm Fresh Eggs', 'A dozen organic free-range eggs.', 480.00, 50, 'eggs.jpg', 'Animal based'),
+(1, 'Heirloom Tomatoes', 'Juicy and ripe Sri Lankan heirloom tomatoes.', 350.00, 200, 'tomatoes.jpg', 'Plant based');
 
 -- Seed Orders (Amounts in LKR)
 INSERT INTO Orders (ConsumerID, TotalAmount, Status) VALUES

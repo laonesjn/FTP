@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS Products (
     Price DECIMAL(10, 2) NOT NULL, -- Price in Sri Lankan Rupees (LKR)
     Stock INT NOT NULL DEFAULT 0,
     ImageURL VARCHAR(255),
+    ItemType ENUM('Plant based', 'Animal based') NOT NULL DEFAULT 'Plant based',
     FOREIGN KEY (FarmerID) REFERENCES Users(UserID) ON DELETE CASCADE
 );
 

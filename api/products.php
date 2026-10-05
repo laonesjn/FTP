@@ -32,9 +32,10 @@ if ($role === 'Farmer') {
             $price = (float)$data['price'];
             $stock = (int)$data['stock'];
             $imageURL = sanitizeInput($data['imageURL'] ?? '');
+            $itemType = isset($data['itemType']) && in_array($data['itemType'], ['Plant based', 'Animal based']) ? $data['itemType'] : 'Plant based';
             
-            $stmt = $pdo->prepare("INSERT INTO Products (FarmerID, Name, Description, Price, Stock, ImageURL) VALUES (?, ?, ?, ?, ?, ?)");
-            if ($stmt->execute([$farmerId, $name, $description, $price, $stock, $imageURL])) {
+            $stmt = $pdo->prepare("INSERT INTO Products (FarmerID, Name, Description, Price, Stock, ImageURL, ItemType) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            if ($stmt->execute([$farmerId, $name, $description, $price, $stock, $imageURL, $itemType])) {
                 echo json_encode(['success' => true, 'id' => $pdo->lastInsertId()]);
             } else {
                 echo json_encode(['error' => 'Failed to add product']);

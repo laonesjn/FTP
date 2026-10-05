@@ -23,12 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $price = (float)$_POST['price'];
     $stock = (int)$_POST['stock'];
     $imageURL = sanitizeInput($_POST['image_url']);
+    $itemType = isset($_POST['item_type']) && in_array($_POST['item_type'], ['Plant based', 'Animal based']) ? $_POST['item_type'] : 'Plant based';
 
     if (empty($name) || $price <= 0 || $stock < 0) {
         $error = "Valid Name, Price, and Stock are required.";
     } else {
-        $stmt = $pdo->prepare("UPDATE Products SET Name=?, Description=?, Price=?, Stock=?, ImageURL=? WHERE ProductID=?");
-        if ($stmt->execute([$name, $description, $price, $stock, $imageURL, $id])) {
+        $stmt = $pdo->prepare("UPDATE Products SET Name=?, Description=?, Price=?, Stock=?, ImageURL=?, ItemType=? WHERE ProductID=?");
+        if ($stmt->execute([$name, $description, $price, $stock, $imageURL, $itemType, $id])) {
             $message = "Product updated successfully!";
         } else {
             $error = "Failed to update product.";
@@ -56,7 +57,7 @@ if (!$product) {
     <style>
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 5px; font-weight: bold;}
-        .form-group input, .form-group textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
         .message { background-color: #dff0d8; padding: 10px; border: 1px solid #d0e9c6; color: #3c763d; margin-bottom: 20px;}
         .error { background-color: #f2dede; padding: 10px; border: 1px solid #ebccd1; color: #a94442; margin-bottom: 20px;}
         .back-link { display: inline-block; margin-bottom: 20px; color: #0066cc; text-decoration: none; }
@@ -79,6 +80,13 @@ if (!$product) {
             <div class="form-group">
                 <label>Product Name</label>
                 <input type="text" name="name" value="<?php echo htmlspecialchars($product['Name']); ?>" required>
+            </div>
+            <div class="form-group">
+                <label>Item Type</label>
+                <select name="item_type" required>
+                    <option value="Plant based" <?php echo ($product['ItemType'] ?? '') === 'Plant based' ? 'selected' : ''; ?>>🌱 Plant based</option>
+                    <option value="Animal based" <?php echo ($product['ItemType'] ?? '') === 'Animal based' ? 'selected' : ''; ?>>🐄 Animal based</option>
+                </select>
             </div>
             <div class="form-group">
                 <label>Description</label>
